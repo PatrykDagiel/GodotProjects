@@ -63,6 +63,7 @@ __meta__ = {
 margin_top = 479.0
 margin_right = 976.0
 margin_bottom = 552.0
+alignment = 2
 
 [node name="PlayerText" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 margin_right = 837.0

@@ -10,13 +10,17 @@ onready var DisplayText = $VBoxContainer/DisplayText
 func _ready():
 	welcome_prompt()
 	check_player_words_length()
+	PlayerText.grab_focus()
 
 
 func _on_PlayerText_text_entered(new_text):
 	add_to_player_words()
 
 func _on_TextureButton_pressed():
-	add_to_player_words()
+	if is_story_done():
+		get_tree().reload_current_scene()
+	else:
+		add_to_player_words()
 	
 func welcome_prompt():
 	DisplayText.text = "Welcome to the game"
@@ -38,6 +42,12 @@ func tell_story():
 
 func check_player_words_length():
 	if is_story_done():
-		tell_story()
+		end_game()
 	else:
 		prompt_player()
+		
+func end_game():
+	PlayerText.queue_free()
+	$VBoxContainer/HBoxContainer/Label.text = "Again"
+	tell_story()
+	
