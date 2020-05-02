@@ -14,10 +14,20 @@ func _ready():
 
 func set_current_story():
 	randomize()
-	var stories = $StoryBook.get_child_count()
-	var selectedStory = randi() % stories
-	current_story.prompts = $StoryBook.get_child(selectedStory).prompts
-	current_story.story = $StoryBook.get_child(selectedStory).story
+	var stories = get_from_json("storyBook.json")
+	current_story = stories[randi() % stories.size()] 
+#	var stories = $StoryBook.get_child_count()
+#	var selectedStory = randi() % stories
+#	current_story.prompts = $StoryBook.get_child(selectedStory).prompts
+#	current_story.story = $StoryBook.get_child(selectedStory).story
+	
+func get_from_json(filename):
+	var file = File.new()
+	file.open(filename, File.READ)
+	var text = file.get_as_text()
+	var data = parse_json(text)
+	file.close()
+	return data
 
 func _on_PlayerText_text_entered(new_text):
 	add_to_player_words()

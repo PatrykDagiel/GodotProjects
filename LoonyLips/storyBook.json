@@ -1,0 +1,11 @@
+
+[
+{
+"prompts": ["a name", "a noun", "an adverb", "an adjective"],
+"story": "Once upon a time there was %s in %s and %s in %s"
+},
+{
+"prompts": ["x", "y", "z"],
+"story": "Three inputs: %s %s, %s"
+}
+]
