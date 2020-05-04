@@ -11,7 +11,7 @@ extents = Vector2( 320, 320 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2( 513.629, 751.094 )
+position = Vector2( -183.897, 839.705 )
 
 [node name="Sprite" type="Sprite" parent="Floor"]
 scale = Vector2( 10, 10 )
@@ -19,3 +19,28 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource( 1 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 522.717, 921.499 )
+
+[node name="Sprite" type="Sprite" parent="Floor2"]
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+shape = SubResource( 1 )
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2( 1208.88, 960.125 )
+
+[node name="Sprite" type="Sprite" parent="Floor3"]
+scale = Vector2( 10, 10 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor3"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 493.04, 443.054 )
+current = true
+zoom = Vector2( 2, 2 )
