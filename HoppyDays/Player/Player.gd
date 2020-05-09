@@ -7,6 +7,9 @@ const GRAVITY = 200
 const UP = Vector2(0,-1)
 const JUMP_SPEED = 4000
 const WORLD_LIMIT = 4000
+const BOOST_MULTIPLAYER = 2
+
+var lifes = 3
 
 signal animate
 
@@ -29,6 +32,7 @@ func apply_gravity():
 func jump():
 	if (Input.is_action_pressed("jump") and is_on_floor()):
 		motion.y -= JUMP_SPEED
+		$JumpSFX.play()
 
 func move():
 	if (Input.is_action_pressed("left") && !Input.is_action_pressed("right")): 
@@ -43,6 +47,21 @@ func animate():
 	
 func end_game():
 	get_tree().change_scene("res://Levels/EndGame.tscn")
+	
+func hurt():
+	position.y -= 1
+	yield(get_tree(), "idle_frame")
+	motion.y -= JUMP_SPEED
+	lifes -= 1
+	$PainSFX.play()
+	if (lifes == 0):
+		end_game()
+		
+func boost():
+	position.y -= 1
+	yield(get_tree(), "idle_frame")
+	motion.y -= JUMP_SPEED * BOOST_MULTIPLAYER
+		
 #	if motion.y < 0:
 #		$PlayerAnimation.play("jump")
 #	elif motion.x > 0:
