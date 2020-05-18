@@ -46,7 +46,7 @@ func animate():
 func hurt():
 	position.y -= 1
 	yield(get_tree(), "idle_frame")
-	motion.y -= JUMP_SPEED
+	motion.y = -JUMP_SPEED
 	$PainSFX.play()
 #	if (lifes == 0):
 #		end_game()
