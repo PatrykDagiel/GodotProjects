@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GFX/PNG/Tiles/tile_463.png" type="Texture" id=1]
-[ext_resource path="res://GFX/PNG/Tiles/tile_536.png" type="Texture" id=2]
-[ext_resource path="res://Lightmaps/Torch.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Characters/NPCS/PlayerDetection.gd" type="Script" id=4]
+[ext_resource path="res://Characters/NPCS/PlayerDetection.gd" type="Script" id=2]
+[ext_resource path="res://GFX/PNG/Tiles/tile_536.png" type="Texture" id=3]
+[ext_resource path="res://Lightmaps/Torch.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -35,7 +35,7 @@ position = Vector2( 6.40287, 0 )
 rotation = -0.523599
 collision_layer = 4
 collision_mask = 3
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -43,14 +43,14 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="CameraBody"]
 rotation = 1.5708
 scale = Vector2( 0.5, 0.75 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraBody"]
 visible = false
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Torch" parent="CameraBody" instance=ExtResource( 3 )]
+[node name="Torch" parent="CameraBody" instance=ExtResource( 4 )]
 position = Vector2( 18, 0 )
 shadow_enabled = true
 
