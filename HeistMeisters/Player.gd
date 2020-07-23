@@ -22,12 +22,12 @@ func update_movement():
 	else: 
 		motion.x = lerp(motion.x, 0, FRICTION)
 	
-func switch_torch():
-	if Input.is_action_just_pressed("switch_torch") && $Torch.enabled == true:
-		$Torch.enabled = false
-	elif Input.is_action_just_pressed("switch_torch") && $Torch.enabled == false:
-		$Torch.enabled = true
-		
+#func switch_torch():
+#	if Input.is_action_just_pressed("toggle_vision_mode") && $Torch.enabled == true:
+#		$Torch.enabled = false
+#	elif Input.is_action_just_pressed("toggle_vision_mode") && $Torch.enabled == false:
+#		$Torch.enabled = true
+#
 func _input(event):
-	if Input.is_action_just_pressed("switch_torch"):
-		$Torch.enabled = !$Torch.enabled
+	if Input.is_action_just_pressed("toggle_vision_mode"):
+		get_tree().call_group("Interface", "cycle_vision_mode")
